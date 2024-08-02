@@ -1,4 +1,4 @@
-package ru.maxima;
+package ru.maxima.homework7;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

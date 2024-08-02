@@ -1,4 +1,4 @@
-package ru.maxima;
+package ru.maxima.homework7;
 
 public interface PDUControler {
     void switchinByNumbers(int namber);
