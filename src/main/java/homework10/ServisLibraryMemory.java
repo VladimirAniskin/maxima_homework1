@@ -5,10 +5,10 @@ import java.util.Set;
 
 public class ServisLibraryMemory implements ServisLibrary {
     private Library library;
+    private static int count_id = 1;
 
     private final Book[] books = new Book[10];
 
-    private final Set<Book> books1 = new HashSet<>();
 
     @Override
     public Book create(Book book) {
@@ -16,7 +16,10 @@ public class ServisLibraryMemory implements ServisLibrary {
         System.out.println(" порядковый номер книги :" + book.getId());
         System.out.println("Наименование книги: " + book.getName());
         System.out.println("Автор книги : " + book.getАuthor());
-        boolean resultSave = books1.add(book);
+        book.setId(count_id);
+        books[count_id] = book;
+        count_id++;
+        boolean resultSave = book.canEqual(book);
         System.out.println(resultSave ? "Книга сохранена" : " Неполучилось сохранить книгу");
         return book;
     }
