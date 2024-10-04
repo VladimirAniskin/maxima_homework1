@@ -5,10 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.maxima</groupId>
-    <artifactId>maxima_homework1</artifactId>
+    <artifactId>maxima_homework11</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
-
 
 
     <properties>
@@ -18,13 +17,20 @@
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.4</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.34</version>
         </dependency>
-
-    </dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+           </dependencies>
 
 </project>
