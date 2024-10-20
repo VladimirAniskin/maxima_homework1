@@ -9,8 +9,6 @@ import ru.maxima.app.repository.AccountRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static ru.maxima.app.model.Account.*;
-
 @Service
 public class AccountServiceImpl implements AccountService {
     @Autowired
@@ -18,7 +16,7 @@ public class AccountServiceImpl implements AccountService {
         this.accountRepository = accountRepository;
     }
 
-    private AccountRepository accountRepository;
+    private final AccountRepository accountRepository;
 
     @Override
     public void sigenUp(AccountDto dto) {
@@ -35,6 +33,11 @@ public class AccountServiceImpl implements AccountService {
     public List<AccountDto> getAll() {
         List <Account> accounts = accountRepository.getAll();
 
-        return accounts.stream().map(acc->AccountDto.builder().build() ).collect(Collectors.toList());
+        return accounts.stream().map(acc->AccountDto.builder()
+                .firstName(acc.getFirstName())
+                .lastName(acc.getLastName())
+                .email(acc.getEmail())
+                .password(acc.getPassword())
+                .build() ).collect(Collectors.toList());
     }
 }
