@@ -11,33 +11,44 @@ import java.util.stream.Collectors;
 
 @Service
 public class AccountServiceImpl implements AccountService {
+
+    private final AccountRepository accountRepository;
+
     @Autowired
     public AccountServiceImpl(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
 
-    private final AccountRepository accountRepository;
 
     @Override
-    public void sigenUp(AccountDto dto) {
+    public Account sigenUp(AccountDto dto) {
+
         accountRepository.signUp(Account.builder()
                 .firstName(dto.getFirstName())
                 .lastName(dto.getLastName())
                 .email(dto.getEmail())
                 .password(dto.getPassword())
                 .build());
+        return null;
     }
 
 
     @Override
     public List<AccountDto> getAll() {
-        List <Account> accounts = accountRepository.getAll();
+        List<Account> accounts = accountRepository.getAll();
 
-        return accounts.stream().map(acc->AccountDto.builder()
+        return accounts.stream().map(acc -> AccountDto.builder()
                 .firstName(acc.getFirstName())
                 .lastName(acc.getLastName())
                 .email(acc.getEmail())
                 .password(acc.getPassword())
-                .build() ).collect(Collectors.toList());
+                .build()).collect(Collectors.toList());
+    }
+    public void register(AccountDto dto) {
+        accountRepository.register(Account.builder()
+                .firstName(dto.getFirstName())
+                .lastName(dto.getLastName())
+                .password(dto.getPassword())
+                .build());
     }
 }

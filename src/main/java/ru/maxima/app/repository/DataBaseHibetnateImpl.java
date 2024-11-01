@@ -10,11 +10,13 @@ public class DataBaseHibetnateImpl implements DataBaseHibernate {
    private final SessionFactory sessionFactory;
 
     public DataBaseHibetnateImpl() {
+
         this.sessionFactory = new Configuration().configure().buildSessionFactory();
     }
 
     @Override
     public Session getSession() {
+
         return sessionFactory.openSession();
     }
 }

@@ -33,7 +33,7 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public List<Account> getAll() {
         try (Session session = hibernate.getSession()) {
-            Query  query = session.createQuery("select * from Account ");
+            Query <Account> query = session.createQuery("select * from Account ");
             return  query.getResultList();
 
         } catch (RuntimeException e){
@@ -41,4 +41,14 @@ public class AccountRepositoryImpl implements AccountRepository {
         }
 
     }
+    public void register(Account account) {
+        try (Session session = hibernate.getSession()) {
+            session.save(account);
+            session.flush();
+            int i = 0;
+        } catch (RuntimeException e) {
+            throw new RuntimeException("не получилось сохранить", e);
+        }
+    }
+
 }

@@ -8,4 +8,5 @@ import java.util.List;
 public interface AccountRepository {
     void signUp(Account account);
     List<Account> getAll();
+    void register (Account account);
 }
