@@ -5,6 +5,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
@@ -12,7 +14,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 @Configuration
 @ComponentScan(basePackages = "ru.maxima.app")
 @EnableWebMvc
-public class AplicotionConfig {
+public class AplicotionConfig implements WebMvcConfigurer {
     @Bean
     public ViewResolver viewResolver() {
         FreeMarkerViewResolver viewResolver = new FreeMarkerViewResolver();
@@ -28,5 +30,10 @@ public class AplicotionConfig {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
         freeMarkerConfigurer.setTemplateLoaderPath("/templates/");
         return freeMarkerConfigurer;
+    }
+
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        WebMvcConfigurer.super.configureViewResolvers(registry);
     }
 }
