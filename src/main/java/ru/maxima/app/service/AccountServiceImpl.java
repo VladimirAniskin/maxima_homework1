@@ -40,12 +40,12 @@ public class AccountServiceImpl implements AccountService {
         return accounts.stream().map(acc -> AccountDto.builder()
                 .firstName(acc.getFirstName())
                 .lastName(acc.getLastName())
-                .email(acc.getEmail())
                 .password(acc.getPassword())
                 .build()).collect(Collectors.toList());
     }
     public void register(AccountDto dto) {
         accountRepository.register(Account.builder()
+                .email(dto.getEmail())
                 .firstName(dto.getFirstName())
                 .lastName(dto.getLastName())
                 .password(dto.getPassword())

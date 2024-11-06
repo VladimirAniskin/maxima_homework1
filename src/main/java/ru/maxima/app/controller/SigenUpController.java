@@ -1,6 +1,7 @@
 package ru.maxima.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 import ru.maxima.app.dto.AccountDto;
@@ -11,6 +12,7 @@ import ru.maxima.app.service.AccountService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Component
 public class SigenUpController implements Controller {
     private final AccountService accountService;
 
