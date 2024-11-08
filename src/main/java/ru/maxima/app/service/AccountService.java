@@ -6,7 +6,7 @@ import ru.maxima.app.model.Account;
 import java.util.List;
 
 public interface AccountService {
-    Account sigenUp(AccountDto dto);
+    Account signUp(AccountDto dto);
 
     List<AccountDto> getAll();
 

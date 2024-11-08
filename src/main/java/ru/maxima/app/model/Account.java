@@ -3,10 +3,13 @@ package ru.maxima.app.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
+@Getter
+@Setter
 @Builder
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name= "Account")
 public class Account {
     @Id
     private String email;

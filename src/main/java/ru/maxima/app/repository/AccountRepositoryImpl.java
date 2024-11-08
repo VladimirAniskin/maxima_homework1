@@ -19,21 +19,25 @@ public class AccountRepositoryImpl implements AccountRepository {
     }
 
     @Override
-    public void signUp(Account account) {
-        this.account = account;
+    public Account signUp(Account account) {
         try (Session session = hibernate.getSession()) {
-            session.save(account);
-
+            Query query = session.createQuery("from Account a where (a.email = :email and a.password = :password)");
+            query.setParameter("email", account.getEmail());
+            query.setParameter("password", account.getPassword());
+            List l = query.list();
+            if (!l.isEmpty()) {
+                return (Account) l.get(0);
+            } else return account;
         } catch (RuntimeException e) {
-            throw new RuntimeException("Не получилось сохранить", e);
+            throw new RuntimeException("что то пошло не так", e);
         }
-
     }
 
     @Override
     public List<Account> getAll() {
         try (Session session = hibernate.getSession()) {
-            Query <Account> query = session.createQuery("select * from Account ");
+            Query query;
+            query = session.createQuery("select * from Account ");
             return  query.getResultList();
 
         } catch (RuntimeException e){
@@ -43,9 +47,9 @@ public class AccountRepositoryImpl implements AccountRepository {
     }
     public void register(Account account) {
         try (Session session = hibernate.getSession()) {
-            session.save(account);
-            session.flush();
-            int i = 0;
+            session.beginTransaction();
+            session.update(account);
+
         } catch (RuntimeException e) {
             throw new RuntimeException("не получилось сохранить", e);
         }

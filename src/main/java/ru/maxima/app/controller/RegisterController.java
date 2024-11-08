@@ -29,7 +29,7 @@ public class RegisterController implements Controller {
                     .password(request.getParameter("password"))
                     .build());
             modelAndView.setViewName("profile");
-            Account account = accountService.sigenUp(AccountDto.builder()
+            Account account = accountService.signUp(AccountDto.builder()
                     .email(request.getParameter("email"))
                     .password(request.getParameter("password"))
                     .build());

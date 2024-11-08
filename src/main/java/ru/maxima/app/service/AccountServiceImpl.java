@@ -21,22 +21,19 @@ public class AccountServiceImpl implements AccountService {
 
 
     @Override
-    public Account sigenUp(AccountDto dto) {
-
-        accountRepository.signUp(Account.builder()
+    public Account signUp(AccountDto dto) {
+        return accountRepository.signUp(Account.builder()
                 .firstName(dto.getFirstName())
                 .lastName(dto.getLastName())
                 .email(dto.getEmail())
                 .password(dto.getPassword())
                 .build());
-        return null;
     }
 
 
     @Override
     public List<AccountDto> getAll() {
         List<Account> accounts = accountRepository.getAll();
-
         return accounts.stream().map(acc -> AccountDto.builder()
                 .firstName(acc.getFirstName())
                 .lastName(acc.getLastName())

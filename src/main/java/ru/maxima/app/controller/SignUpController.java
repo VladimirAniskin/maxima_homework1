@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-public class SigenUpController implements Controller {
+public class SignUpController implements Controller {
     private final AccountService accountService;
 
     @Autowired
-    public SigenUpController(AccountService accountService) {
+    public SignUpController(AccountService accountService) {
 
         this.accountService = accountService;
     }
@@ -28,7 +28,7 @@ public class SigenUpController implements Controller {
                                       HttpServletResponse response) throws Exception {
         ModelAndView modelAndView = new ModelAndView();
         if (request.getMethod().equalsIgnoreCase("post")) {
-            Account account = accountService.sigenUp(AccountDto.builder()
+            Account account = accountService.signUp(AccountDto.builder()
                     .email(request.getParameter("email"))
                     .password(request.getParameter("password"))
                     .build());
