@@ -48,8 +48,8 @@ public class AccountRepositoryImpl implements AccountRepository {
     public void register(Account account) {
         try (Session session = hibernate.getSession()) {
             session.beginTransaction();
-            session.update(account);
-
+            session.save(account);
+            session.flush();
         } catch (RuntimeException e) {
             throw new RuntimeException("не получилось сохранить", e);
         }

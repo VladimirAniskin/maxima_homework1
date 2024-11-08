@@ -23,9 +23,9 @@ public class RegisterController implements Controller {
         ModelAndView modelAndView = new ModelAndView();
         if (request.getMethod().equalsIgnoreCase("post")) {
             accountService.register(AccountDto.builder()
+                    .email(request.getParameter("email"))
                     .firstName(request.getParameter("firstName"))
                     .lastName(request.getParameter("lastName"))
-                    .email(request.getParameter("email"))
                     .password(request.getParameter("password"))
                     .build());
             modelAndView.setViewName("profile");
