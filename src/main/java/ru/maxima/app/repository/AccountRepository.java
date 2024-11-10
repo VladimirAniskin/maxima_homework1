@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface AccountRepository {
     Account signUp(Account account);
+
     List<Account> getAll();
-    void register (Account account);
+
+    void register(Account account);
 }

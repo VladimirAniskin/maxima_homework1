@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
-    <meta charset = "UTF-8">
+    <meta charset="UTF-8">
     <title>Register</title>
 </head>
 <body>
 <h1>Registration Page</h1>
 <h2>Please Enter your data:</h2>
-<form action = "/register" method="post">
+<form action="/register" method="post">
     <label for="email">Enter email:</label>
     <input id="email" name="email" placeholder="Your email">
     <br>

@@ -40,6 +40,7 @@ public class AccountServiceImpl implements AccountService {
                 .password(acc.getPassword())
                 .build()).collect(Collectors.toList());
     }
+
     public void register(AccountDto dto) {
         accountRepository.register(Account.builder()
                 .email(dto.getEmail())

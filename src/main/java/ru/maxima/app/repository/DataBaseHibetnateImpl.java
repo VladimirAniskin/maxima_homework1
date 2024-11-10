@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DataBaseHibetnateImpl implements DataBaseHibernate {
-   private final SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     public DataBaseHibetnateImpl() {
 

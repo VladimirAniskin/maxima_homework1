@@ -38,13 +38,14 @@ public class AccountRepositoryImpl implements AccountRepository {
         try (Session session = hibernate.getSession()) {
             Query query;
             query = session.createQuery("select * from Account ");
-            return  query.getResultList();
+            return query.getResultList();
 
-        } catch (RuntimeException e){
+        } catch (RuntimeException e) {
             throw new RuntimeException("Не получилось получить список пользователей", e);
         }
 
     }
+
     public void register(Account account) {
         try (Session session = hibernate.getSession()) {
             session.beginTransaction();

@@ -1,4 +1,5 @@
 package ru.maxima.app.controller;
+
 import ru.maxima.app.dto.AccountDto;
 import ru.maxima.app.model.Account;
 import ru.maxima.app.service.AccountService;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class RegisterController implements Controller {
     private final AccountService accountService;
+
     @Autowired
     public RegisterController(AccountService accountService) {
         this.accountService = accountService;

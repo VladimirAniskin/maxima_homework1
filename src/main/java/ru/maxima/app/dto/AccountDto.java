@@ -2,6 +2,7 @@ package ru.maxima.app.dto;
 
 
 import lombok.*;
+
 @Data
 @Builder
 @NoArgsConstructor

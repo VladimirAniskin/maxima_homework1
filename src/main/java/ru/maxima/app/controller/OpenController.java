@@ -11,13 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 public class OpenController {
     @GetMapping
     public String open(HttpServletRequest request,
-                       Model model){
+                       Model model) {
         System.out.println("Контроллер работает");
-     return ("signUp");
+        return ("signUp");
     }
-@PostMapping
-    public String register (HttpServletRequest request,
-                       Model model){
+
+    @PostMapping
+    public String register(HttpServletRequest request,
+                           Model model) {
         System.out.println("Контроллер работает");
         return ("register");
     }
